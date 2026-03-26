@@ -18,6 +18,18 @@
 
 ## インストール
 
+### mise（推奨）
+
+```bash
+# 最新版
+mise use -g github:tact-software/mdskim
+
+# バージョン指定
+mise use -g github:tact-software/mdskim@0.1.0
+```
+
+### ソースからビルド
+
 ```bash
 git clone https://github.com/tact-software/mdskim.git
 cd mdskim

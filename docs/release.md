@@ -25,20 +25,31 @@
 
 ## リリース手順
 
-1. `Cargo.toml` の `version` を更新する
-2. `mise run check` で全チェックが通ることを確認する
-3. コミットする
+1. リリース用ブランチを作成する
+   ```bash
+   git switch -c release/v{x.y.z}
+   ```
+2. `Cargo.toml` の `version` を更新する
+3. `mise run check` で全チェックが通ることを確認する
+4. コミットして push する
    ```bash
    git add Cargo.toml
    git commit -m "Bump version to x.y.z"
+   git push -u origin release/v{x.y.z}
    ```
-4. タグを作成して push する
+5. PR を作成してマージする
    ```bash
-   git tag v{x.y.z}
-   git push origin main --tags
+   gh pr create --title "Bump version to x.y.z" --body "Release v{x.y.z}"
    ```
-5. [GitHub Actions](../../actions) でリリースワークフローが完了することを確認する
-6. [Releases](../../releases) ページで 4 つのアーティファクトが添付されていることを確認する
+   CI が通ったらマージする。
+6. タグを作成して push する
+   ```bash
+   git switch main && git pull
+   git tag v{x.y.z}
+   git push origin v{x.y.z}
+   ```
+7. [GitHub Actions](../../actions) でリリースワークフローが完了することを確認する
+8. [Releases](../../releases) ページで 4 つのアーティファクトが添付されていることを確認する
 
 ## インストール（mise 経由）
 
