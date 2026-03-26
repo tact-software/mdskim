@@ -45,13 +45,12 @@ cp target/release/mdskim ~/.local/bin/
 
 ### 必要なもの
 
-- **Rust** (1.85+)
-- **Node.js** — Mermaid、数式レンダリング、PDF エクスポートに必要
-- **mise** — タスクランナー
-- **mmdc** (`npm:@mermaid-js/mermaid-cli`) — Mermaid レンダリング（`mise install` で自動導入）
-- **mathjax-full** — 数式レンダリング（`mise run setup` で自動導入）
-- **puppeteer-core** — PDF エクスポート（`mise run setup` で自動導入）
-- **Google Chrome / Chromium** — PDF エクスポートに必要（システムにインストール済みのものを使用）
+- **Rust** (1.90+)
+- **Node.js** (22+) — Mermaid、数式レンダリング、PDF エクスポートに必要
+- **mise** — ツール管理・タスクランナー
+- **Google Chrome / Chromium** — Mermaid レンダリング・PDF エクスポートに必要（システムにインストール済みのものを使用）
+
+Node.js ライブラリ（mermaid, mathjax-full, puppeteer-core）は `mdskim setup` で `~/.local/share/mdskim/` に自動インストールされます。
 
 ## 使い方
 
