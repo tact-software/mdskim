@@ -14,7 +14,7 @@ Terminal-based Markdown viewer with Vim-like navigation and Mermaid support.
 
 - clap, anyhow, crossterm, ratatui, pulldown-cmark, syntect, serde, toml
 - ratatui-image, image (inline terminal images)
-- mermaid-cli (external, via mise)
+- mermaid, puppeteer-core, mathjax-full (Node.js, via `mdskim setup`)
 
 ## Config
 

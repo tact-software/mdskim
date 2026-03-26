@@ -1,15 +1,11 @@
 [tools]
 rust = "1.90"
 node = "22"
-"npm:@mermaid-js/mermaid-cli" = "11"
 
 [tasks.deps]
 run = """
 echo 'Checking dependencies...'
 cargo --version || { echo 'ERROR: cargo not found'; exit 1; }
-mmdc --version > /dev/null 2>&1 || echo 'WARN: mmdc not found. Mermaid rendering disabled. Run: mise install'
-node -e "require('mathjax-full/js/mathjax.js')" > /dev/null 2>&1 || echo 'WARN: mathjax-full not found. Math rendering disabled. Run: mise run setup'
-node -e "require('puppeteer-core')" > /dev/null 2>&1 || echo 'WARN: puppeteer-core not found. PDF export disabled. Run: mise run setup'
 echo 'Dependencies checked.'
 """
 description = "Check required dependencies"

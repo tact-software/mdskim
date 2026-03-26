@@ -18,6 +18,18 @@ Terminal-based Markdown viewer with Vim-like navigation, Mermaid diagrams, and m
 
 ## Install
 
+### mise (recommended)
+
+```bash
+# Latest version
+mise use -g github:tact-software/mdskim
+
+# Specific version
+mise use -g github:tact-software/mdskim@0.1.0
+```
+
+### Build from source
+
 ```bash
 git clone https://github.com/tact-software/mdskim.git
 cd mdskim
@@ -33,13 +45,12 @@ cp target/release/mdskim ~/.local/bin/
 
 ### Requirements
 
-- **Rust** (1.85+)
-- **Node.js** — Required for Mermaid, math rendering, and PDF export
-- **mise** — Task runner
-- **mmdc** (`npm:@mermaid-js/mermaid-cli`) — Mermaid rendering (auto-installed via `mise install`)
-- **mathjax-full** — Math rendering (auto-installed via `mise run setup`)
-- **puppeteer-core** — PDF export (auto-installed via `mise run setup`)
-- **Google Chrome / Chromium** — Required for PDF export (uses system-installed browser)
+- **Rust** (1.90+)
+- **Node.js** (22+) — Required for Mermaid, math rendering, and PDF export
+- **mise** — Tool manager and task runner
+- **Google Chrome / Chromium** — Required for Mermaid rendering and PDF export (uses system-installed browser)
+
+Node.js libraries (mermaid, mathjax-full, puppeteer-core) are automatically installed to `~/.local/share/mdskim/` via `mdskim setup`.
 
 ## Usage
 
@@ -60,10 +71,10 @@ mdskim doc.md --export-pdf output.pdf
 # Light theme
 mdskim doc.md --theme light
 
-# 高速モード（Mermaid/Math レンダリングをスキップ）
+# Fast mode (skip Mermaid/Math rendering)
 mdskim doc.md --render-mode fast
 
-# Docker内でPDF出力
+# PDF export in Docker
 mdskim doc.md --export-pdf out.pdf --no-sandbox
 ```
 
