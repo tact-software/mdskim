@@ -1,0 +1,94 @@
+# mdskim configuration
+# Place this file at: ~/.config/mdskim/config.toml
+
+# Theme: "dark" or "light"
+# theme = "dark"
+
+# Custom CSS for HTML export (replaces the built-in theme CSS).
+# Copy assets/export-dark.css or export-light.css as a starting point.
+# When set, --theme is ignored for HTML export.
+# export_css = "~/.config/mdskim/custom.css"
+
+# Directory containing custom .sublime-syntax files for syntax highlighting.
+# Files are loaded on top of the built-in syntaxes.
+# syntax_dir = "~/.config/mdskim/syntaxes"
+
+# Render mode: "full" or "fast"
+# full: render Mermaid diagrams and Math formulas (slower startup)
+# fast: skip rendering, show placeholders (instant startup)
+# Can be overridden with --render-mode on the command line.
+# render_mode = "full"
+
+# Heading styles (TUI display)
+# decoration options:
+#   double_line        ═══ above and below
+#   double_overline    ═══ above only
+#   double_underline   ═══ below only
+#   heavy_line         ━━━ above and below
+#   heavy_overline     ━━━ above only
+#   heavy_underline    ━━━ below only
+#   light_line         ─── above and below
+#   light_overline     ─── above only
+#   light_underline    ─── below only
+#   dotted_underline   ┄┄┄ below only
+#   dashed_underline   ╌╌╌ below only
+#   none               no decoration
+[headings.h1]
+# decoration = "double_line"
+# bold = true
+# dim = false
+[headings.h2]
+# decoration = "heavy_underline"
+# bold = true
+# dim = false
+[headings.h3]
+# decoration = "light_underline"
+# bold = true
+# dim = false
+[headings.h4]
+# decoration = "dotted_underline"
+# bold = true
+# dim = false
+[headings.h5]
+# decoration = "none"
+# bold = true
+# dim = false
+[headings.h6]
+# decoration = "none"
+# bold = false
+# dim = true
+
+# Keybindings
+# Custom key overrides
+# Format: key = "action"
+[keybindings.custom]
+## === Vim defaults ===
+# q = "quit"
+# j = "scroll_down"
+# k = "scroll_up"
+# d = "half_page_down"
+# u = "half_page_up"
+# g = "go_to_top_pending"   # gg to go to top
+# G = "go_to_bottom"
+# "/" = "search"
+# n = "search_next"
+# N = "search_prev"
+# "]" = "next_heading"
+# "[" = "prev_heading"
+# t = "toggle_toc"
+# l = "toggle_links"
+# o = "open_link"
+# r = "reload"
+# "?" = "toggle_help"
+#
+## === Always available (not configurable) ===
+## s         TOC side pane (focus)
+## z         fold/unfold section
+## Ctrl-c    quit
+## Ctrl-f    page down
+## Ctrl-b    page up
+## Ctrl-n/p  next/prev file
+## Arrows    scroll up/down
+## PgUp/PgDn page scroll
+## Home/End  top/bottom
+## Esc       close overlay

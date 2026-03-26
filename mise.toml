@@ -1,0 +1,56 @@
+[tools]
+rust = "1.90"
+node = "22"
+"npm:@mermaid-js/mermaid-cli" = "11"
+
+[tasks.deps]
+run = """
+echo 'Checking dependencies...'
+cargo --version || { echo 'ERROR: cargo not found'; exit 1; }
+mmdc --version > /dev/null 2>&1 || echo 'WARN: mmdc not found. Mermaid rendering disabled. Run: mise install'
+node -e "require('mathjax-full/js/mathjax.js')" > /dev/null 2>&1 || echo 'WARN: mathjax-full not found. Math rendering disabled. Run: mise run setup'
+node -e "require('puppeteer-core')" > /dev/null 2>&1 || echo 'WARN: puppeteer-core not found. PDF export disabled. Run: mise run setup'
+echo 'Dependencies checked.'
+"""
+description = "Check required dependencies"
+
+[tasks.build]
+run = "cargo build"
+depends = ["deps"]
+description = "Build the project"
+
+[tasks.release]
+run = "cargo build --release"
+depends = ["deps"]
+description = "Build for release"
+
+[tasks.run]
+run = "cargo run --"
+depends = ["deps"]
+description = "Run mdskim"
+
+[tasks.test]
+run = "cargo test"
+depends = ["deps"]
+description = "Run tests"
+
+[tasks.lint]
+run = "cargo clippy -- -D warnings"
+depends = ["deps"]
+description = "Run clippy linter"
+
+[tasks.fmt]
+run = "cargo fmt"
+description = "Format code"
+
+[tasks.check]
+run = "cargo fmt --check && cargo clippy -- -D warnings && cargo test"
+depends = ["deps"]
+description = "Run all checks"
+
+[tasks.setup]
+run = """
+git config core.hooksPath .githooks
+npm install
+"""
+description = "Set up git hooks and install Node.js dependencies"

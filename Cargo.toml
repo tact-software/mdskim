@@ -1,0 +1,21 @@
+[package]
+name = "mdskim"
+version = "0.1.0"
+edition = "2024"
+description = "A terminal-based Markdown viewer with Vim-like navigation"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+crossterm = "0.29"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "gif", "webp"] }
+pulldown-cmark = "0.12"
+regex-lite = "0.1"
+ratatui = "0.30"
+ratatui-image = { version = "10", default-features = false, features = ["crossterm"] }
+resvg = { version = "0.47.0", default-features = false, features = ["text", "system-fonts", "memmap-fonts"] }
+serde = { version = "1", features = ["derive"] }
+syntect = { version = "5", default-features = false, features = ["default-syntaxes", "default-themes", "regex-fancy", "parsing", "html", "plist-load", "yaml-load"] }
+toml = "0.8"
+unicode-width = "0.2"
+ureq = "3"

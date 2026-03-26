@@ -1,0 +1,96 @@
+/* mdskim HTML export — dark theme
+ *
+ * To customize, copy this file and set export_css in config.toml.
+ * When export_css is set, this default is NOT loaded.
+ *
+ * HTML structure:
+ *   <h1>..<h6>                     Headings
+ *   <div class="line">             Text line
+ *   <div class="line code-bg">     Code block line
+ *   <table><thead>/<tbody>         Tables
+ *   <div class="mermaid-diagram">  Mermaid SVG
+ *   <a href="...">                 Links
+ *   <span style="...">            Styled inline text
+ */
+
+body {
+  background: #1a1a2e;
+  color: #e0e0e0;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 24px 48px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1 { font-size: 2em; margin: 0.8em 0 0.4em; border-bottom: 2px solid #e0e0e033; padding-bottom: 0.2em; }
+h2 { font-size: 1.5em; margin: 0.7em 0 0.3em; border-bottom: 1px solid #e0e0e022; padding-bottom: 0.15em; }
+h3 { font-size: 1.25em; margin: 0.6em 0 0.3em; }
+h4 { font-size: 1.1em; margin: 0.5em 0 0.2em; }
+h5 { font-size: 1em; margin: 0.4em 0 0.2em; }
+h6 { font-size: 0.9em; margin: 0.4em 0 0.2em; text-transform: uppercase; letter-spacing: 0.05em; }
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+
+.line {
+  min-height: 1.5em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0.5em 0;
+}
+
+th, td {
+  border: 1px solid #e0e0e033;
+  padding: 6px 12px;
+}
+
+th {
+  background: #e0e0e011;
+  font-weight: bold;
+}
+
+.code-bg {
+  background: #282828;
+  border-radius: 2px;
+}
+
+.mermaid-diagram {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px 0;
+  text-align: center;
+}
+
+.mermaid-diagram svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.math-display {
+  text-align: center;
+  margin: 12px 0;
+}
+
+.math-display svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.math-inline {
+  display: inline;
+}
+
+.math-inline svg {
+  vertical-align: middle;
+}
+
+@media print {
+  body { background: white; color: black; padding: 0; }
+  .code-bg { background: #f5f5f5; }
+  .mermaid-diagram { break-inside: avoid; }
+}

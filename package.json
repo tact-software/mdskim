@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "description": "Node.js dependencies for mdskim helper scripts",
+  "dependencies": {
+    "mathjax-full": "^3",
+    "puppeteer-core": "^24"
+  }
+}
